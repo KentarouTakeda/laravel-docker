@@ -1,9 +1,9 @@
-FROM php:8.3-apache-bullseye
+FROM php:8.3-apache-bookworm
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends gnupg \
  && curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /usr/share/keyrings/postgres-archive-keyring.gpg \
- && echo "deb [signed-by=/usr/share/keyrings/postgres-archive-keyring.gpg] https://apt.postgresql.org/pub/repos/apt/" bullseye-pgdg main > /etc/apt/sources.list.d/postgres.list \
+ && echo "deb [signed-by=/usr/share/keyrings/postgres-archive-keyring.gpg] https://apt.postgresql.org/pub/repos/apt/" bookworm-pgdg main > /etc/apt/sources.list.d/postgres.list \
  && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /usr/share/keyrings/nodesource.gpg \
  && echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list \
  && apt-get update \
@@ -30,7 +30,7 @@ RUN apt-get update \
     libxslt1.1 \
     libzip-dev \
     libzip4 \
-    netcat \
+    netcat-openbsd \
     nodejs \
     postgresql-client-16 \
     ssh \
