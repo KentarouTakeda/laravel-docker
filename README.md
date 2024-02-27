@@ -10,7 +10,9 @@
 
 * [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) をインストール
 * このリポジトリをワークスペースとして開く
-* コマンドパレットより *Remote-Containers: Reopen in Container* を実行
+* コマンドパレットより次のコマンドを実行  
+  > Dev Containers: **Reopen in Container**  
+  > 開発コンテナー: コンテナーで再度開く  
 
 ## セットアップ（初回のみ）
 
