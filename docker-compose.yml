@@ -20,6 +20,9 @@ services:
       APP_KEY: _DUMMYDUMMYDUMMYDUMMYDUMMYDUMMY_
       APP_ENV: local
       APP_URL: http://localhost:8000
+      APP_TIMEZONE: Asia/Tokyo
+      APP_LOCALE: ja
+      APP_FAKER_LOCALE: ja_JP
       DB_CONNECTION: pgsql
       DB_HOST: database
       DB_PORT: 5432
