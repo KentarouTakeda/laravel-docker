@@ -52,11 +52,11 @@
       },
 
       "extensions": [
-        "EditorConfig.EditorConfig",
         "bmewburn.vscode-intelephense-client",
         "csstools.postcss",
         "donjayamanne.githistory",
         "eamodio.gitlens",
+        "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
         "junstyle.php-cs-fixer",
         "mhutchie.git-graph",
