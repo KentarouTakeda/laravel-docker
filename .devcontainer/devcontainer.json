@@ -62,6 +62,7 @@
         "mhutchie.git-graph",
         "onecentlin.laravel-blade",
         "ryannaddy.laravel-artisan",
+        "SanderRonde.phpstan-vscode",
         "shufo.vscode-blade-formatter",
         "stylelint.vscode-stylelint"
       ]
