@@ -12,8 +12,10 @@
     "vscode": {
       "settings": {
         "editor.renderWhitespace": "boundary",
-        "php-cs-fixer.allowRisky": false,
+        "php-cs-fixer.allowRisky": true,
         "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer",
+        "php-cs-fixer.onsave": true,
+        "php-cs-fixer.pathMode": "intersection",
         "[php]": {
           "editor.defaultFormatter": "junstyle.php-cs-fixer"
         },
