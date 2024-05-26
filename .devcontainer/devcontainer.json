@@ -56,14 +56,12 @@
       "extensions": [
         "bmewburn.vscode-intelephense-client",
         "csstools.postcss",
-        "donjayamanne.githistory",
         "eamodio.gitlens",
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
         "junstyle.php-cs-fixer",
         "mhutchie.git-graph",
         "onecentlin.laravel-blade",
-        "ryannaddy.laravel-artisan",
         "SanderRonde.phpstan-vscode",
         "shufo.vscode-blade-formatter",
         "stylelint.vscode-stylelint"
