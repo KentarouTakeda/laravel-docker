@@ -56,7 +56,10 @@ RUN apt-get update \
  && pecl install apcu \
  && pecl install pcov \
  && pecl clear-cache \
- && docker-php-ext-enable apcu pcov \
+ && curl -L --output -  https://pecl.php.net/get/imagick-3.7.0.tgz  | tar xz -C /tmp \
+ && (cd /tmp/imagick-3.7.0 && phpize && ./configure && make install) \
+ && rm -rf /tmp/imagick-3.7.0 \
+ && docker-php-ext-enable apcu imagick pcov \
  && apt-get purge -y \
     libbz2-dev \
     libfreetype6-dev \
