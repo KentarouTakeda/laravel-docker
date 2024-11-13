@@ -13,6 +13,7 @@ services:
       - php:/var/www
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
       - ./docker/php/httpd.conf:/etc/apache2/apache2.conf
+      - ./docker/php/my.cnf:/home/www-data/.my.cnf
       - ./docker/php/ssh-config:/etc/ssh/ssh_config.d/default.conf
     working_dir: /var/www
     environment:
@@ -23,13 +24,12 @@ services:
       APP_TIMEZONE: Asia/Tokyo
       APP_LOCALE: ja
       APP_FAKER_LOCALE: ja_JP
-      DB_CONNECTION: pgsql
+      DB_CONNECTION: mysql
       DB_HOST: database
-      DB_PORT: 5432
-      DB_DATABASE: postgres
-      DB_USERNAME: postgres
-      PGHOST: database
-      PGUSER: postgres
+      DB_PORT: 3306
+      DB_DATABASE: app
+      DB_USERNAME: app
+      DB_PASSWORD: password
       TZ: Asia/Tokyo
       MAIL_MAILER: smtp
       MAIL_HOST: mail
@@ -40,21 +40,37 @@ services:
       LANGUAGE: en_US
 
   database:
-    image: postgres:bullseye
+    image: mysql:8
     volumes:
-      - database:/var/lib/postgresql/data
-      - ./docker/postgres:/docker-entrypoint-initdb.d
+      - database:/var/lib/mysql
+      - ./docker/mysql/init-phpmyadmin.sql:/docker-entrypoint-initdb.d/init-databases.sql
     ports:
-      - ${PORT_PGSQL:-0}:5432
+      - ${PORT_MYSQL:-0}:3306
     environment:
       TZ: Asia/Tokyo
-      PGUSER: postgres
-      POSTGRES_HOST_AUTH_METHOD: trust
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
 
   mail:
     image: axllent/mailpit
     ports:
       - ${PORT_WEB_MAIL:-8025}:8025
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8001:80
+    depends_on:
+      - database
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: app
+      MYSQL_PASSWORD: password
+      PMA_HOST: database
+      PMA_USER: root
+      PMA_PASSWORD: password
 
 volumes:
   database:

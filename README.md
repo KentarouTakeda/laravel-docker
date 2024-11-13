@@ -35,6 +35,7 @@
 |アプリケーション|URL|
 |-|-|
 |Laravel|http://localhost:8000/|
+|phpMyAdmin|http://localhost:8001/|
 |Mailpit|http://localhost:8025/|
 
 ## .env によるカスタマイズ（任意）
@@ -43,7 +44,7 @@
 |-|-|-|
 |APP_DEBUG|Laravel設定|true|
 |PORT_WEB_APP|公開ポート / Laravel|8000|
-|PORT_PGSQL|公開ポート / PostgreSQL|0 *非公開*|
+|PORT_MYSQL|公開ポート / MySQL|0 *非公開*|
 |PORT_WEB_MAIL|公開ポート / Mailpit|8025|
 |PORT_BROWSERSYNC|公開ポート / Browsersync|3000|
 

@@ -3,6 +3,7 @@ services:
     image: schemaspy/schemaspy:6.1.0
     volumes:
       - ./schema:/output
-    command: -t pgsql -host database:5432 -db postgres -u postgres
+      - ./docker/schemaspy/drivers:/drivers
+      - ./docker/schemaspy/schemaspy.properties:/schemaspy.properties
     depends_on:
       - database
