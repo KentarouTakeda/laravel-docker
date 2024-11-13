@@ -12,11 +12,15 @@
     "vscode": {
       "settings": {
         "editor.renderWhitespace": "boundary",
+        "files.associations": {
+          "*.css": "tailwindcss"
+        },
         "php-cs-fixer.allowRisky": true,
         "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer",
         "php-cs-fixer.onsave": true,
         "php-cs-fixer.pathMode": "intersection",
         "[php]": {
+          "editor.formatOnSave": true,
           "editor.defaultFormatter": "junstyle.php-cs-fixer"
         },
         "diffEditor.ignoreTrimWhitespace": false,
@@ -27,21 +31,22 @@
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true
         },
-        "[css]": {
-          "editor.formatOnSave": false
+        "[tailwindcss]": {
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": "explicit"
+          }
         },
-        "scss.validate": false,
         "[scss]": {
-          "editor.formatOnSave": false
-        },
-        "postcss.validate": false,
-        "[postcss]": {
-          "editor.formatOnSave": false
+          "editor.formatOnSave": false,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": "explicit"
+          }
         },
         "stylelint.validate": ["css", "scss", "postcss"],
         "emmet.triggerExpansionOnTab": true,
         "blade.format.enable": true,
-        "intelephense.environment.phpVersion": "8.2.0",
+        "intelephense.environment.phpVersion": "8.3.0",
         "intelephense.files.exclude": [
           "**/.git/**",
           "**/node_modules/**",
@@ -54,15 +59,18 @@
       },
 
       "extensions": [
+        "aaron-bond.better-comments",
         "bmewburn.vscode-intelephense-client",
+        "bradlc.vscode-tailwindcss",
         "csstools.postcss",
         "eamodio.gitlens",
-        "EditorConfig.EditorConfig",
+        "ecmel.vscode-html-css",
+        "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
         "junstyle.php-cs-fixer",
         "mhutchie.git-graph",
         "onecentlin.laravel-blade",
-        "SanderRonde.phpstan-vscode",
+        "sanderronde.phpstan-vscode",
         "shufo.vscode-blade-formatter",
         "stylelint.vscode-stylelint"
       ]
