@@ -32,10 +32,10 @@
 
 ## URL
 
-|アプリケーション|URL|備考|
-|-|-|-|
-|Laravel|http://localhost:8000/|-|
-|Mailpit|http://localhost:8025/|-|
+|アプリケーション|URL|
+|-|-|
+|Laravel|http://localhost:8000/|
+|Mailpit|http://localhost:8025/|
 
 ## .env によるカスタマイズ（任意）
 
