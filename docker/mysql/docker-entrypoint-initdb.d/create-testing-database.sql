@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS `testing`
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+GRANT ALL PRIVILEGES ON `testing`.* TO `app`@`%`;

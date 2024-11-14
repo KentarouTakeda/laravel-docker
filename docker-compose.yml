@@ -42,7 +42,7 @@ services:
     image: mysql:8
     volumes:
       - mysql:/var/lib/mysql
-      - ./docker/mysql/init-phpmyadmin.sql:/docker-entrypoint-initdb.d/init-databases.sql
+      - ./docker/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
       - ${PORT_MYSQL:-0}:3306
     environment:
