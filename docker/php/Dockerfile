@@ -77,7 +77,6 @@ RUN apt-get update \
  && chmod +x /usr/local/bin/composer \
  && curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o /etc/bash_completion.d/git-completion.bash -s \
  && echo . /etc/bash_completion >> /etc/bash.bashrc \
- && rm -rf /var/www/* \
  && chmod g+s /var/www \
  && chown -R www-data:www-data /var/www \
  && chsh -s /bin/bash www-data \
@@ -85,6 +84,10 @@ RUN apt-get update \
  && usermod -d /home/www-data www-data \
  && cp -r /etc/skel/. /home/www-data \
  && chown -R www-data:www-data /home/www-data
+
+COPY ssh-config /etc/ssh/ssh_config.d/default.conf
+RUN chmod 644 /etc/ssh/ssh_config.d/default.conf
+RUN rm -rf /var/www/*
 
 ENV PATH $PATH:vendor/bin:node_modules/.bin
 WORKDIR  /var/www
