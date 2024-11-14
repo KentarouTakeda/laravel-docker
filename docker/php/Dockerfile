@@ -33,7 +33,7 @@ RUN apt-get update \
     libzip4 \
     netcat-openbsd \
     nodejs \
-    postgresql-client-16 \
+    postgresql-client-17 \
     ssh \
     tree \
     unzip \
