@@ -3,7 +3,7 @@
 ## 概要
 
 * 多くのアプリケーションで必要となる環境設定を全て終えた状態のLaravel実行環境。
-* PostgreSQL, MySQL 両対応。`docker-compose.yml` はPostgreSQLを想定。
+* PostgreSQL, MySQL 両対応。`docker-compose.yml` はMySQLを想定。
 * VSCode Remote Containers と併せて使うことで必要な開発ツールが全てインストールされる。
 
 ## 接続（VSCode）
