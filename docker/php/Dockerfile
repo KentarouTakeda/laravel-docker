@@ -12,6 +12,7 @@ RUN apt-get update \
     default-mysql-client \
     git \
     jq \
+    less \
     libbz2-dev \
     libfreetype6 \
     libfreetype6-dev \
