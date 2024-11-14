@@ -14,7 +14,6 @@ services:
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
       - ./docker/php/httpd.conf:/etc/apache2/apache2.conf
       - ./docker/php/my.cnf:/home/www-data/.my.cnf
-      - ./docker/php/ssh-config:/etc/ssh/ssh_config.d/default.conf
     working_dir: /var/www
     environment:
       APP_DEBUG: ${APP_DEBUG:-true}

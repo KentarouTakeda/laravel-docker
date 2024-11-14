@@ -5,13 +5,14 @@ RUN apt-get update \
  && curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /usr/share/keyrings/postgres-archive-keyring.gpg \
  && echo "deb [signed-by=/usr/share/keyrings/postgres-archive-keyring.gpg] https://apt.postgresql.org/pub/repos/apt/" bookworm-pgdg main > /etc/apt/sources.list.d/postgres.list \
  && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /usr/share/keyrings/nodesource.gpg \
- && echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list \
+ && echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list \
  && apt-get update \
  && apt-get install -y --no-install-recommends \
     bash-completion \
     default-mysql-client \
     git \
     jq \
+    less \
     libbz2-dev \
     libfreetype6 \
     libfreetype6-dev \
@@ -32,7 +33,7 @@ RUN apt-get update \
     libzip4 \
     netcat-openbsd \
     nodejs \
-    postgresql-client-16 \
+    postgresql-client-17 \
     ssh \
     tree \
     unzip \
@@ -77,7 +78,6 @@ RUN apt-get update \
  && chmod +x /usr/local/bin/composer \
  && curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o /etc/bash_completion.d/git-completion.bash -s \
  && echo . /etc/bash_completion >> /etc/bash.bashrc \
- && rm -rf /var/www/* \
  && chmod g+s /var/www \
  && chown -R www-data:www-data /var/www \
  && chsh -s /bin/bash www-data \
@@ -85,6 +85,10 @@ RUN apt-get update \
  && usermod -d /home/www-data www-data \
  && cp -r /etc/skel/. /home/www-data \
  && chown -R www-data:www-data /home/www-data
+
+COPY ssh-config /etc/ssh/ssh_config.d/default.conf
+RUN chmod 644 /etc/ssh/ssh_config.d/default.conf
+RUN rm -rf /var/www/*
 
 ENV PATH $PATH:vendor/bin:node_modules/.bin
 WORKDIR  /var/www
