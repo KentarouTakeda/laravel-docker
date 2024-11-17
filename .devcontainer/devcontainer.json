@@ -72,7 +72,8 @@
         "onecentlin.laravel-blade",
         "sanderronde.phpstan-vscode",
         "shufo.vscode-blade-formatter",
-        "stylelint.vscode-stylelint"
+        "stylelint.vscode-stylelint",
+        "xdebug.php-debug"
       ]
     }
   }
