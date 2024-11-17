@@ -35,7 +35,7 @@
 |アプリケーション|URL|
 |-|-|
 |Laravel|http://localhost:8000/|
-|phpMyAdmin|http://localhost:8001/|
+|phpMyAdmin|http://localhost:8306/|
 |Mailpit|http://localhost:8025/|
 
 ## .env によるカスタマイズ（任意）
