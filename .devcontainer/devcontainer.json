@@ -70,9 +70,11 @@
         "junstyle.php-cs-fixer",
         "mhutchie.git-graph",
         "onecentlin.laravel-blade",
+        "recca0120.vscode-phpunit",
         "sanderronde.phpstan-vscode",
         "shufo.vscode-blade-formatter",
-        "stylelint.vscode-stylelint"
+        "stylelint.vscode-stylelint",
+        "xdebug.php-debug"
       ]
     }
   }
