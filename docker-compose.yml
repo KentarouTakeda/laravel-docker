@@ -37,6 +37,7 @@ services:
       QUEUE_CONNECTION: sync
       LANG: C.UTF-8
       LANGUAGE: en_US
+      PHP_CS_FIXER_IGNORE_ENV: 1 # TODO php-cs-fixerがphp-8.4に対応した時点で削除
 
   database:
     image: mysql:8
