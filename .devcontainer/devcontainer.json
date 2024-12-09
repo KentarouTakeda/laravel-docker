@@ -26,6 +26,9 @@
         "diffEditor.ignoreTrimWhitespace": false,
         "php.suggest.basic": false,
         "php.validate.enable": false,
+        "phpunit.environment": {
+          "XDEBUG_MODE": "debug"
+        },
         "css.validate": false,
         "[javascript]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
