@@ -33,7 +33,6 @@ services:
       MAIL_MAILER: smtp
       MAIL_HOST: mail
       MAIL_PORT: 1025
-      MAIL_ENCRYPTION: "null"
       QUEUE_CONNECTION: sync
       LANG: C.UTF-8
       LANGUAGE: en_US
