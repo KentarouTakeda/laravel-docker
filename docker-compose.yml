@@ -34,6 +34,7 @@ services:
       MAIL_HOST: mail
       MAIL_PORT: 1025
       QUEUE_CONNECTION: sync
+      DEBUGBAR_OPEN_STORAGE: true
       LANG: C.UTF-8
       LANGUAGE: en_US
       PHP_CS_FIXER_IGNORE_ENV: 1 # TODO php-cs-fixerがphp-8.4に対応した時点で削除
