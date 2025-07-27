@@ -60,7 +60,7 @@ services:
       - ${PORT_WEB_MAIL:-8025}:8025
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin:latest
     ports:
       - 8306:80
     depends_on:
