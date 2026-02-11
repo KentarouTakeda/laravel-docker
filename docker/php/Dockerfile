@@ -1,11 +1,11 @@
-FROM php:8.4-apache-bookworm
+FROM php:8.5-apache-bookworm
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends gnupg \
  && curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /usr/share/keyrings/postgres-archive-keyring.gpg \
  && echo "deb [signed-by=/usr/share/keyrings/postgres-archive-keyring.gpg] https://apt.postgresql.org/pub/repos/apt/" bookworm-pgdg main > /etc/apt/sources.list.d/postgres.list \
  && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /usr/share/keyrings/nodesource.gpg \
- && echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list \
+ && echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_24.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list \
  && curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg > /etc/apt/keyrings/githubcli-archive-keyring.gpg \
  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" > /etc/apt/sources.list.d/github-cli.list \
  && apt-get update \
@@ -36,7 +36,7 @@ RUN apt-get update \
     libzip4 \
     netcat-openbsd \
     nodejs \
-    postgresql-client-17 \
+    postgresql-client-18 \
     ssh \
     tree \
     unzip \
@@ -50,7 +50,6 @@ RUN apt-get update \
     gd \
     gettext \
     intl \
-    opcache \
     pcntl \
     pdo_mysql \
     pdo_pgsql \
@@ -58,11 +57,9 @@ RUN apt-get update \
     xsl \
     zip \
  && pecl install apcu \
+ && pecl install imagick \
  && pecl install xdebug \
  && pecl clear-cache \
- && curl -L --output -  https://pecl.php.net/get/imagick-3.7.0.tgz  | tar xz -C /tmp \
- && (cd /tmp/imagick-3.7.0 && phpize && ./configure && make install) \
- && rm -rf /tmp/imagick-3.7.0 \
  && docker-php-ext-enable apcu imagick xdebug \
  && apt-get purge -y \
     libbz2-dev \
@@ -87,13 +84,14 @@ RUN apt-get update \
  && mkdir /home/www-data \
  && usermod -d /home/www-data www-data \
  && cp -r /etc/skel/. /home/www-data \
- && chown -R www-data:www-data /home/www-data
+ && chown -R www-data:www-data /home/www-data \
+ && su -s /bin/bash www-data -c "curl -fsSL https://claude.ai/install.sh | bash"
 
 COPY ssh-config /etc/ssh/ssh_config.d/default.conf
 RUN chmod 644 /etc/ssh/ssh_config.d/default.conf
 RUN rm -rf /var/www/*
 
-ENV PATH $PATH:vendor/bin:node_modules/.bin
+ENV PATH=$PATH:vendor/bin:node_modules/.bin
 WORKDIR  /var/www
 USER www-data
 ENTRYPOINT []
